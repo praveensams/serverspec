@@ -6,10 +6,8 @@ describe package('httpd') do
   it { should be_installed }
 end
 
-describe service('httpd') do
-  it { should be_enabled }
+decribe command('ps aux') do
+  its(:stdout) { should match /httpd/ }
 end
 
-describe port(80) do
-  it { should be_listening }
-end
+
